@@ -4,9 +4,9 @@ require 'sinatra'
 require 'sinatra/namespace'
 require 'json'
 
-require_relative 'link_analytics'
-require_relative 'link_cache'
-require_relative 'url_helper'
+require_relative 'lib/link_analytics'
+require_relative 'lib/link_cache'
+require_relative 'lib/url_helper'
 
 post '/short_link' do
   data = JSON.parse(request.body.read)
