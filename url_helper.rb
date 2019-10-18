@@ -13,6 +13,7 @@ module URLHelper
 
     LinkCache.map(long_url, short_path)
 
+    # TODO: make this more easily configurable, potentially automatic
     "http://localhost:8080/#{short_path}"
   end
 
