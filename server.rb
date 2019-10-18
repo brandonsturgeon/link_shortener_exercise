@@ -27,7 +27,7 @@ post '/short_link' do
 
   return { error: 'Invalid URL' }.to_json unless URLHelper.url_is_valid?(long_url)
 
-  response['short_url'] = URLHelper.generate_short_url(long_url)
+  response['short_url'] = URLHelper.generate_short_url(long_url, request)
 
   response.to_json
 end
@@ -60,5 +60,7 @@ get '/:short_link/analytics' do
 
   return { error: 'Invalid URL' }.to_json unless LinkAnalytics.has? short_path
 
-  LinkAnalytics.get_analytics_for(short_path).to_json
+  analytics = LinkAnalytics.get_analytics_for(short_path)
+
+  { response: analytics }.to_json
 end
