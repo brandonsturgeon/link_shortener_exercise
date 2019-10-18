@@ -32,7 +32,7 @@ Continuing with our example,
 A `GET` to `/sR5mLQ` will return a `301` response to `https://www.google.com/test`
 If an invalid path is given, the tool will return a `404`
 
-A GET to `/sR5mLQ/analytics` will yield a JSON response in this format:
+A `GET` to `/sR5mLQ/analytics` will yield a JSON response in this format:
 ```js
 {"response":[{"time":"2019-10-17 18:19:16 -0700","referer":null,"user_agent":"curl/7.54.0"},{"time":"2019-10-17 18:19:17 -0700","referer":null,"user_agent":"curl/7.54.0"},{"time":"2019-10-17 18:19:19 -0700","referer":null,"user_agent":"curl/7.54.0"}]}
 ```
