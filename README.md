@@ -28,8 +28,7 @@ If the given `long_url` is malfornmed in any way, an error will be returned in t
 {"error":"Invalid URL"}
 ```
 
-Continuing with our example,
-A `GET` to `/sR5mLQ` will return a `301` response to `https://www.google.com/test`
+Continuing with our example, a `GET` to `/sR5mLQ` will return a `301` redirect to `https://www.google.com/test`
 If an invalid path is given, the tool will return a `404`
 
 A `GET` to `/sR5mLQ/analytics` will yield a JSON response in this format:
