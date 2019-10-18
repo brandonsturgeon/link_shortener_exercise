@@ -5,7 +5,7 @@ require 'securerandom'
 
 # Helpers relating to URLs
 module URLHelper
-  def self.generate_short_url(long_url)
+  def self.generate_short_url(long_url, request)
     # In bytes. Length ~= bytes * 1.333..
     path_length = 4
 
@@ -13,8 +13,7 @@ module URLHelper
 
     LinkCache.map(long_url, short_path)
 
-    # TODO: make this more easily configurable, potentially automatic
-    "http://localhost:8080/#{short_path}"
+    "#{request.base_url}/#{short_path}"
   end
 
   def self.url_is_valid?(url)
