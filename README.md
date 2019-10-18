@@ -64,3 +64,6 @@ Would be considered different than
 ```
 www.google.com/test?param2=bar
 ```
+
+### Redirection protocol
+All redirects are done using `https://`, even if the shortened link had `http://`
