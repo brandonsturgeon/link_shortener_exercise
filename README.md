@@ -19,7 +19,7 @@ Or, if you're in the project dir and have met all of the requirements:
 
 
 ## Usage
-A POST to `/short_link` with a json-compliant body including a `long_url` key (value should be a  FQDN, some exceptions apply, read the Notes section) will yield a response similar to this:
+A `POST` to `/short_link` with a json-compliant body including a `long_url` key (value should be a  FQDN, protocol optional) will yield a response similar to this:
 ```js
 {"long_url":"www.google.com/test","short_url":"http://localhost:8080/sR5mLQ"}
 ```
@@ -29,7 +29,7 @@ If the given `long_url` is malfornmed in any way, an error will be returned in t
 ```
 
 Continuing with our example,
-A GET to `/sR5mLQ` will return a 301 response to `https://www.google.com/test`
+A `GET` to `/sR5mLQ` will return a `301` response to `https://www.google.com/test`
 If an invalid path is given, the tool will return a `404`
 
 A GET to `/sR5mLQ/analytics` will yield a JSON response in this format:
