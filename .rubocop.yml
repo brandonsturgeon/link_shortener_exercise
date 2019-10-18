@@ -1,0 +1,11 @@
+BlockComments:
+  Exclude:
+    - server.rb
+
+Style/ClassVars:
+  Exclude:
+    - link_analytics.rb
+    - link_cache.rb
+
+Metrics/LineLength:
+  Max: 120
