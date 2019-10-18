@@ -12,6 +12,7 @@ module URLHelper
     short_path = SecureRandom.urlsafe_base64(path_length)
 
     LinkCache.map(long_url, short_path)
+    LinkAnalytics.seed(short_path)
 
     "#{request.base_url}/#{short_path}"
   end

@@ -23,7 +23,7 @@ A `POST` to `/short_link` with a json-compliant body including a `long_url` key 
 ```js
 {"long_url":"www.google.com/test","short_url":"http://localhost:8080/sR5mLQ"}
 ```
-If the given `long_url` is malfornmed in any way, an error will be returned in this format:
+If the given `long_url` is malfornmed in any way, an error will be returned in this format as a `400` error:
 ```js
 {"error":"Invalid URL"}
 ```
@@ -33,14 +33,8 @@ If an invalid path is given, the tool will return a `404`
 
 A `GET` to `/sR5mLQ/analytics` will yield a JSON response in this format:
 ```js
-{"response":[{"time":"2019-10-17 18:19:16 -0700","referer":null,"user_agent":"curl/7.54.0"},{"time":"2019-10-17 18:19:17 -0700","referer":null,"user_agent":"curl/7.54.0"},{"time":"2019-10-17 18:19:19 -0700","referer":null,"user_agent":"curl/7.54.0"}]}
+{"response":[{"time":"2019-10-17 18:19:16 -0700","referer":null,"user_agent":"curl/7.54.0"},{"time":"2019-10-17 18:19:17 -0700","referer":null,"user_agent":"curl/7.54.0"},{"time":"2019-10-17 18:19:19 -0700","referer":null,"user_agent":"curl/7.54.0"}],"total_views":3}
 ```
-
-If no analytics have been recorded for the given path, an error will be returned in this format:
-```js
-{"error":"Invalid URL"}
-```
-
 
 ## Notes
 ### Cached Link

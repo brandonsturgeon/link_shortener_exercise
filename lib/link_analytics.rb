@@ -10,7 +10,6 @@ module LinkAnalytics
     new_analytics[:referer] = request.referer
     new_analytics[:user_agent] = request.user_agent
 
-    @@analytics[short_path] ||= []
     @@analytics[short_path].push(new_analytics)
 
     new_analytics
@@ -22,5 +21,9 @@ module LinkAnalytics
 
   def self.has?(short_path)
     !@@analytics[short_path].nil?
+  end
+
+  def self.seed(short_path)
+    @@analytics[short_path] ||= []
   end
 end
