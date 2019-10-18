@@ -2,8 +2,9 @@
 
 # Maps fully qualified URL's to their shortened paths
 module LinkCache
-  # intentionally making this a class var to aid legibility in server.rb
-  # (while it is an antipattern, this wouldn't be the right scale-able solution anyway.)
+  # Intentionally making this a class variable to more easily use this module's methods across files and scopes.
+  # While this is an antipattern, it's worth noting that this entire storage solution is, in itself, an antipattern.
+  # Instead, one could implement a persisent storage tool (flat-file or otherwise), and refactor this module into a relatively simple interface with the storage tool.
   @@cache = {}
 
   def self.map(long_url, short_path)
