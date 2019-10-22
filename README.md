@@ -81,3 +81,10 @@ Now, `Analytics`. I think we'd keep it simple, and say that `ShortenedURL` `has_
 
 Going through all of this makes me think of the cool analytics one could provide to link owners. A full frontend would be really fun to make for this.
 
+
+## Tests
+### Running
+With `bundler` installed and in your `PATH`,
+```bash
+bundle exec rspec
+```
