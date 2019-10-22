@@ -79,6 +79,8 @@ We'd index the shortened path (could potentially even make it the primary key, b
 
 As for `Analytics`, I think we'd keep it simple and say that `ShortenedURL` `has_many` `Visits`. A `Visit` contains all relevant information about the visit. Origin, headers, etc.
 
+Worth noting that this would require a good deal of refactoring, particlularly to ensure it's testable (speaking of, the tests would need a good deal of refactoring, too).
+
 
 
 Going through all of this makes me think of the cool analytics one could provide to link owners. A full frontend would be really fun to make for this.
