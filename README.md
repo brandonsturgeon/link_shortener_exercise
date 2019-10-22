@@ -66,16 +66,18 @@ All redirects are done using `https://`, even if the shortened link had `http://
 
 ### Persistent Storage plans
 At first I struggled a bit with what persistent storage solution would fit best in the project.
-I had considered Redis' RDB persistance solution because of it speed and simplicity, plus the simple key/value was an appealing option for our situation, because at its simplest form, it maps one URL to another.
+I had considered Redis' RDB persistance solution because of its speed and simplicity, plus the simple key/value was an appealing option for our situation, where we're essentially just mapping one URL to another.
 However, after implementing the analytics and building a better vision for the product, it became clear that ActiveRecord was the way to go
 
 Used correctly, it could be pretty dang quick. Any speed issues could be fixed up by throwing a cache or three in front of it.
 It gives us the freedom to expand the Analytics portion in whatever direction we'd like, and allows for more information to be tacked on to the URL (creator, expiration date, other relationships, etc.)
 
 So, using AR, we'd have a `ShortenedURL` table that paired the shortened path (not the entire link, just the path after the `/`) and the long (the redirect) URL. We could even look into hashing the path in some way to simplify the field.
-We'd index the shortened path (could potentially even make it the primary key, but that would take some toying) because we're only doing a long -> short lookup once during the create action, where speed isn't a concern, but we'd index `short`.
 
-Now, `Analytics`. I think we'd keep it simple, and say that `ShortenedURL` `has_many` `Visits`. A `Visit` contains all relevant information about the visit. Origin, headers, etc.
+
+We'd index the shortened path (could potentially even make it the primary key, but that would take some toying) because we're only doing a long -> short lookup once during the create action, where speed isn't a concern, but the majority of lookups will be finding by the short path.
+
+As for `Analytics`, I think we'd keep it simple and say that `ShortenedURL` `has_many` `Visits`. A `Visit` contains all relevant information about the visit. Origin, headers, etc.
 
 
 
